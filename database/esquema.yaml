@@ -1,0 +1,126 @@
+# Esquema de la base de datos
+
+
+Accidentes:
+  ID:
+    tipo: primary_key
+    obligatorio: si
+    unico: si
+    descripción: Identificador de accidente
+  
+  # Datos de usuario
+  Nombre:
+    tipo: string
+    descripción: Nombre del accidentado
+    obligatorio: No
+  Edad:
+    tipo: int
+    descripción: Edad del accidentado
+    obligatorio: No
+  Reportero:
+    tipo: string
+    descripción: Tipo de persona que hace el reporte
+    obligatorio: Si
+    opciones:
+      - accidentado
+      - conocido
+      - desconocido
+  
+  # Datos del accidente
+  Latitud:
+    tipo: float
+    descripción: Latitud del accidente
+    obligatorio: si
+  Longitud:
+    tipo: float
+    descripción: Longitud del accidente
+    obligatorio: si
+  TipoAccidente:
+    tipo: string
+    descripción: Identificador de tipo de accidente.
+    obligatorio: si
+    opciones:
+      - Choque trasero por vehiculo
+      - Choque con otra bicicleta
+      - Choque delantero con vehiculo
+      - Choque lateral por puerta
+      - Bache
+      - etc...
+  
+  # Datos de herida
+  Lesion:
+    tipo: string
+    descripción: Identificador de tipo de herida
+    obligatorio: si
+    opciones:
+      - Nada
+      - Rasguños
+      - Muerte
+      - Fractura de brazo
+      - etc ...
+  AtencionConductor:
+    tipo: booleano
+    default: no
+  AtencionMedica:
+    tipo: booleano
+    obligatorio: si
+    default: no
+  
+  # Reportes de accidente
+  ReporteSSPC:
+    tipo: booleano
+    descripción: Hubo reporte ante la SSCP?
+    obligatorio: si
+    default: no
+  ReporteServiciosMedicos:
+    tipo: booleano
+    descripción: Hubo reporte ante algún servicio médico?
+    obligatorio: si
+    default: no
+  TiempoRespuestaSSPC:
+    tipo: float
+    descripción: Tiempo de respuesta de la SSPC ante el reporte, en minutos
+    obligatorio: no
+  TiempoRespuestaServicioMedico:
+    tipo: float
+    descripción: Tiempo de respuesta de la SSPC ante el reporte, en minutos
+    obligatorio: no
+  
+  # Equipo de protección
+  UsoCasco:
+    tipo: booleano
+    descripción: El accidentado estaba usando casco?
+    obligatorio: si
+  UsoRodilleras:
+    tipo: booleano
+    descripción: El accidentado estaba usando rodilleras?
+    obligatorio: si
+  UsoCoderas:
+    tipo: booleano
+    descripción: El accidentado estaba usando coderas?
+    obligatorio: si
+  UsoLuces:
+    tipo: booleano
+    descripción: El accidentado estaba usando luces?
+    obligatorio: si
+  UsoMaterialReflejante:
+    tipo: booleano
+    descripción: El accidentado estaba usando material reflejante?
+    obligatorio: si
+    
+  # Tipo de trayecto
+  TrayectoFrequente:
+    tipo: booleano
+    descripción: Es un trayecto frequente para el accidentado?
+    obligatorio: no
+  TipoTrayecto:
+    tipo: string
+    descripción: Identificador del tipo de trayecto
+    obligatorio: no
+    opciones:
+      - Camino a casa
+      - Camino a trabajo
+      - Paseo
+      - Ejercicio
+      - Camino a evento social
+      - etc....
